@@ -9,10 +9,13 @@ function IronbnbList() {
 
   useEffect(() => {
     console.log("useEffect - Initial render (Mounting)");
-    axios.get(apiURL).then((response) => {
+    axios.get(apiURL)
+    .then((response) => {
       setApartments(response.data);
       setFetching(false);
     });
+
+    return ()=>console.log("useEffect - cleanup");
   }, []);
 
   return (
